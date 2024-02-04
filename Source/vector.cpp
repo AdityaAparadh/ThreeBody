@@ -101,7 +101,13 @@ Vector Vector::vectorProductWith(Vector b) const
     return {(x * b.y) - (y * b.x), (z * b.x) - (x * b.z), y * (b.z) - (z * b.y)};
 }
 
-
+void Vector::normalize() {
+    float mag = getMagnitude();
+    x /= mag;
+    y /= mag;
+    z /= mag;
+    updateData();
+}
 
 
 void Vector::PrintVector() const

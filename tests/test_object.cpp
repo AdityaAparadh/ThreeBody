@@ -68,7 +68,7 @@ TEST(ObjectTest, UpdateTest){
 
     EulerObject obj(1, Vector(1, 1, 1), Vector(1, 1, 1), Vector(1, 1, 1));
 
-    obj.Update();
+    obj.Update(1);
 
     ASSERT_EQ(obj.getVelocity().getX(), 2);
     ASSERT_EQ(obj.getVelocity().getY(), 2);
@@ -81,7 +81,7 @@ TEST(ObjectTest, UpdateTest){
     ASSERT_EQ(obj.getAcceleration().getZ(), 0);
 
     obj.applyForce(Vector(1, 1, 1));
-    obj.Update();
+    obj.Update(1);
 
     ASSERT_EQ(obj.getVelocity().getX(), 3);
     ASSERT_EQ(obj.getVelocity().getY(), 3);

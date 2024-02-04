@@ -50,6 +50,7 @@ public:
         float scalarProductWith(Vector b) const;
         Vector vectorProductWith(Vector b) const;
 
+        void normalize();
 
         void PrintVector() const;
 

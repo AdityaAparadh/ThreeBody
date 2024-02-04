@@ -83,3 +83,15 @@ TEST(VectorTest, MagnitudeTest) {
     ASSERT_EQ(result, expected);
 }
 
+TEST(VectorTest, NormalizeTest) {
+
+    Vector v1(1, 2, 3);
+
+    v1.normalize();
+
+    const float epsilon = 0.0001;
+
+    bool result  = (1 - v1.getMagnitude()) < epsilon;
+
+    ASSERT_EQ(result, true);
+}

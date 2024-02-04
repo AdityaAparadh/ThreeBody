@@ -44,8 +44,8 @@ void EulerObject::applyForce( Vector Force) {
     acceleration = acceleration + newAcceleration;
 }
 
-void EulerObject::Update() {
-    velocity = velocity + acceleration;
-    position = position + velocity;
+void EulerObject::Update(float delta) {
+    velocity = velocity + acceleration*delta;
+    position = position + velocity*delta;
     acceleration = Vector(0,0,0);
 }

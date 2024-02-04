@@ -25,7 +25,7 @@ class EulerObject : public Object{
 
 
         void applyForce(Vector Force);
-        void Update() override;
+        void Update(float delta) override;
 
 };
 
