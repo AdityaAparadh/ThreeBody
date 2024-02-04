@@ -8,18 +8,23 @@ project(
 )
 
 add_executable(
-    ThreeBody
-    Source/vector.cpp
-    main.cpp
+        ThreeBody
+        Source/vector.cpp
+        main.cpp
+        Source/object.cpp
+        Source/eulerObject.cpp
 )
 
 add_subdirectory(external)
 enable_testing()
 
 add_executable(
-    ThreeBodyTests
-    Source/vector.cpp
-    tests/test_vector.cpp
+        ThreeBodyTests
+        Source/vector.cpp
+        Source/object.cpp
+        Source/eulerObject.cpp
+        tests/test_vector.cpp
+        tests/test_object.cpp
 )
 
 target_link_libraries(
