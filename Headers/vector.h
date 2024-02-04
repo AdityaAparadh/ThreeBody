@@ -52,7 +52,6 @@ public:
 
         void normalize();
 
-        void PrintVector() const;
 
 };
 

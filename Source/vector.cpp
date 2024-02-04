@@ -1,5 +1,4 @@
 #include <cmath>
-#include <iostream>
 #include "../Headers/vector.h"
 
 
@@ -107,10 +106,4 @@ void Vector::normalize() {
     y /= mag;
     z /= mag;
     updateData();
-}
-
-
-void Vector::PrintVector() const
-{
-    std::cout << "{ " << x << " , " << y << " , " << z << " }" << std::endl;
 }
