@@ -19,6 +19,9 @@ add_executable(
         Source/eulerObject.cpp
         tests/test_vector.cpp
         tests/test_object.cpp
+        Source/scene.cpp
+        tests/test_scene.cpp
+
 )
 
 target_link_libraries(

@@ -20,6 +20,8 @@ public:
     void setMass(float Mass);
     void setPosition(Vector Position);
 
+
+    virtual void applyForce(Vector Force) = 0;
     virtual void Update(float) = 0;
 };
 
