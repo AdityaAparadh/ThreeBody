@@ -3,33 +3,32 @@
 
 class Vector{
 
-    private:
-
+private:
         float x;
         float y;
         float z;
 
-        float magnitude;        
-        float direction_alpha;        
-        float direction_beta;
-        float direction_gamma;
+        float magnitude{};
+        float direction_alpha{};
+        float direction_beta{};
+        float direction_gamma{};
     
         void updateData();
 
-    public:
+public:
 
         Vector();
         Vector(float xyz);
         Vector(float x, float y, float z);
 
-        float getX();
-        float getY();
-        float getZ();
+        float getX() const;
+        float getY() const;
+        float getZ() const;
         
-        float getMagnitude();
-        float getDirectionAlpha();
-        float getDirectionBeta();
-        float getDirectionGamma();
+        float getMagnitude() const;
+        float getDirectionAlpha() const;
+        float getDirectionBeta() const;
+        float getDirectionGamma() const;
 
         void setX(float x);
         void setY(float y);
@@ -37,22 +36,22 @@ class Vector{
 
         void scaleMagnitude(float scale);
 
-        Vector operator+(Vector b);
-        Vector operator-(Vector b);
-        Vector operator*( float multiplicand );
-        Vector operator/(float divisor);
+        Vector operator+(Vector b) const;
+        Vector operator-(Vector b) const;
+        Vector operator*( float multiplicand ) const;
+        Vector operator/(float divisor) const;
 
 
-        Vector addTo(Vector b);
-        Vector subtractBy( Vector b);
-        Vector multiplyWith( float multiplicand );
-        Vector divideBy(float divisor);
+        Vector addTo(Vector b) const;
+        Vector subtractBy( Vector b) const;
+        Vector multiplyWith( float multiplicand ) const;
+        Vector divideBy(float divisor) const;
 
-        float scalarProductWith(Vector b);
-        Vector vectorProductWith(Vector b);
+        float scalarProductWith(Vector b) const;
+        Vector vectorProductWith(Vector b) const;
 
 
-        void PrintVector();
+        void PrintVector() const;
 
 };
 

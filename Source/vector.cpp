@@ -1,14 +1,13 @@
-#include <vector>
-#include <iostream>
 #include <cmath>
+#include <iostream>
 #include "../Headers/vector.h"
 
 
 void Vector::updateData(){
-    magnitude = sqrt(x*x + y*y + z*z);
-    direction_alpha = atan(y/x);
-    direction_beta = atan(z/y);
-    direction_gamma = atan(z/x);
+    magnitude = std::sqrt(x*x + y*y + z*z );
+    direction_alpha = std::atan(y/x);
+    direction_beta = std::atan(z/y);
+    direction_gamma = std::atan(z/x);
 }
 
 
@@ -17,33 +16,36 @@ Vector::Vector()
     x = 0;
     y = 0;
     z = 0;
+    updateData();
 }
 Vector::Vector(float xyz)
 {
     x = xyz;
     y = xyz;
     z = xyz;
+    updateData();
 }
 Vector::Vector(float x, float y, float z)
 {
     this->x = x;
     this->y = y;
     this->z = z;
+    updateData();
 }
 
-float Vector::getX() { return x; }
-float Vector::getY() { return y; }
-float Vector::getZ() { return z; }
+float Vector::getX() const { return x; }
+float Vector::getY() const { return y; }
+float Vector::getZ() const { return z; }
 
-float Vector::getMagnitude(){ return magnitude; }
-float Vector::getDirectionAlpha(){ return direction_alpha; }
-float Vector::getDirectionBeta(){ return direction_beta; }
-float Vector::getDirectionGamma(){ return direction_gamma; }
+float Vector::getMagnitude() const{ return magnitude; }
+float Vector::getDirectionAlpha() const{ return direction_alpha; }
+float Vector::getDirectionBeta() const{ return direction_beta; }
+float Vector::getDirectionGamma() const{ return direction_gamma; }
 
 
-void Vector::setX(float x) { this->x = x; updateData(); }
-void Vector::setY(float y) { this->y = y; updateData(); }
-void Vector::setZ(float z) { this->z = z; updateData(); }
+void Vector::setX(float X) { this->x = X; updateData(); }
+void Vector::setY(float Y) { this->y = Y; updateData(); }
+void Vector::setZ(float Z) { this->z = Z; updateData(); }
 
 void Vector::scaleMagnitude(float scale)
 {
@@ -54,55 +56,55 @@ void Vector::scaleMagnitude(float scale)
 }
 
 
-Vector Vector::operator+(Vector b)
+Vector Vector::operator+(Vector b) const
 {
-    return Vector(x + b.x, y + b.y, z + b.z);
+    return {x + b.x, y + b.y, z + b.z};
 }
-Vector Vector::operator-(Vector b)
+Vector Vector::operator-(Vector b) const
 {
-    return Vector(x - b.x, y - b.y, z - b.z);
+    return {x - b.x, y - b.y, z - b.z};
 }
-Vector Vector::operator*(float multiplicand)
+Vector Vector::operator*(float multiplicand) const
 {
-    return Vector(x * multiplicand, y * multiplicand, z * multiplicand);
+    return {x * multiplicand, y * multiplicand, z * multiplicand};
 }
-Vector Vector::operator/(float divisor)
+Vector Vector::operator/(float divisor) const
 {
-    return Vector(x / divisor, y / divisor, z / divisor);
-}
-
-
-
-Vector Vector::addTo(Vector b)
-{
-    return Vector(x + b.x, y + b.y, z + b.z);
-}
-Vector Vector::subtractBy(Vector b)
-{
-    return Vector(x - b.x, y - b.y, z - b.z);
-}
-Vector Vector::multiplyWith(float multiplicand)
-{
-    return Vector(x * multiplicand, y * multiplicand, z * multiplicand);
-}
-Vector Vector::divideBy(float divisor)
-{
-    return Vector(x / divisor, y / divisor, z / divisor);
+    return {x / divisor, y / divisor, z / divisor};
 }
 
-float Vector::scalarProductWith(Vector b)
+
+
+Vector Vector::addTo(Vector b) const
+{
+    return {x + b.x, y + b.y, z + b.z};
+}
+Vector Vector::subtractBy(Vector b) const
+{
+    return {x - b.x, y - b.y, z - b.z};
+}
+Vector Vector::multiplyWith(float multiplicand) const
+{
+    return {x * multiplicand, y * multiplicand, z * multiplicand};
+}
+Vector Vector::divideBy(float divisor) const
+{
+    return {x / divisor, y / divisor, z / divisor};
+}
+
+float Vector::scalarProductWith(Vector b) const
 {
     return (x * b.x + y * b.y + z * b.z);
 }
-Vector Vector::vectorProductWith(Vector b)
+Vector Vector::vectorProductWith(Vector b) const
 {
-    return Vector((x * b.y) - (y * b.x), (z * b.x) - (x * b.z), y * (b.z) - (z * b.y));
+    return {(x * b.y) - (y * b.x), (z * b.x) - (x * b.z), y * (b.z) - (z * b.y)};
 }
 
 
 
 
-void Vector::PrintVector()
+void Vector::PrintVector() const
 {
     std::cout << "{ " << x << " , " << y << " , " << z << " }" << std::endl;
 }
