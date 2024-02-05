@@ -1,3 +1,6 @@
+#ifndef GRAVITY_CPP
+#define GRAVITY_CPP
+
 #include "../Headers/scene.h"
 #include <cmath>
 
@@ -20,3 +23,5 @@ void Gravitate( Scene& scene, float delta ) {
         }
     }
 }
+
+#endif
